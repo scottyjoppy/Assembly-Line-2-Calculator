@@ -1,2 +1,1 @@
-# scottyjoppy.github.io
-Assembly Line Calculator
+# Assembly Line 2 Calculator
