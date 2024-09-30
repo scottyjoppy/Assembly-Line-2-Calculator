@@ -1,7 +1,7 @@
 const XLSX = require('xlsx');
 const fs = require('fs');
 
-const filePath = 'C:/Users/alexa/Documents/Projects/Assembly Line/Assembly-Line-2-Calc/Assembly-Database.xlsx';
+const filePath = 'C:/Users/alexa/Documents/Projects/Assembly Line/Assembly-Line-2-Calculator/assets/Assembly-Database.xlsx';
 
 let colArray = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
 let rowArray = Array.from({ length: 1000 }, (_, i) => i + 1);
