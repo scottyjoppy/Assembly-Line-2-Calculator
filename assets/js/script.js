@@ -473,6 +473,8 @@ function aiRobot(amountPS) {
 
   aiRobotMade = cable(amountPS * 5, 4) + "\n" + plate(amountPS * 10, 1) + "\n" + aiRobotHead(amountPS) + "\n" + aiRobotBody(amountPS) + " --> " + machine[3].amount + " " + machine[3].name;
 
+  document.getElementById('message').innerHTML = aiRobotMade;
+
   return aiRobotMade;
 }
 
