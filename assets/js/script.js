@@ -14,6 +14,43 @@ function showHide() {
   }
 }
 
+function getMetal(){
+if(materialDropdown.value === "copper"){
+  return metalIndex = 0;
+} else if (materialDropdown.value === "iron"){
+  return metalIndex = 1;
+} else if (materialDropdown.value === "gold"){
+  return metalIndex = 2;
+} else if (materialDropdown.value === "aluminium"){
+  return metalIndex = 3;
+} else if (materialDropdown.value === "diamond"){
+  return metalIndex = 4;
+}
+}
+
+const amountPerSecond = document.getElementById("amountPerSecond");
+
+function calculate() {
+const listItem = list.value
+const amountPS = amountPerSecond.value;
+let metalIndex = getMetal();
+
+  if(listItem === "metal"){
+    const result = metalI(amountPS, metalIndex);
+    results.textContent = result;
+
+  } else if(listItem === "wire") {
+    const result = wire(amountPS, metalIndex);
+    results.textContent = result;;
+  }
+}
+
+const results = document.getElementById("results")
+
+const button = document.getElementById("calculateButton");
+
+button.addEventListener("click", calculate)
+
 const starterLvl = document.getElementById("starterLvl");
 const starterSpeed = document.getElementById("starterSpeed");
 const wireMakerLvl = document.getElementById("wireMakerLvl");
@@ -107,14 +144,11 @@ maxAll.addEventListener("change", function() {
       }
     }
   }
-
-})
-
+})//update the 0.2 items PS text
 
 
 
-let amountPS = 1;
-let make;
+
 
 let metal = ["Copper", "Iron", "Gold", "Aluminium", "Diamond"];
 let machine = [{
@@ -207,42 +241,40 @@ let item = [{
 colRow = "C" + [0];
 
 for (let i = 0; i <= 8; i++) {
-  colRow = "C" + [i + 2];
+
   if (readExcelFile(filePath, colRow) !== 1) {
     machine[i].level = readExcelFile(filePath, colRow);
   }
+
+
 
 }
 //REFERENCE TEST CELLS
 colRow = "P" + [2];
 amountPS = readExcelFile(filePath, colRow);
 colRow = "O" + [2];
-make = item[readExcelFile(filePath, colRow)].name;
 let colValue = readExcelFile(filePath, colRow);
 
 //ITEM & TYPE IS SET
-let index = 1;
-let metalIndex = 4; // make if statement for certain items need type specified
 
-if (machine[0].level == 1) {
-  machine[0].level = 1;
-} else if (machine[0].level == 2) {
-  machine[0].level = 5 / 4;
-} else if (machine[0].level == 3) {
-  machine[0].level = 5 / 3;
-} else if (machine[0].level == 4) {
-  machine[0].level = 5 / 2;
-} else if (machine[0].level == 5) {
-  machine[0].level = 5;
-} else if (machine[0].level == 6) {
-  machine[0].level = 20 / 3;
-} else if (machine[0].level == 7) {
-  machine[0].level = 10;
-} else if (machine[0].level == 8) {
-  machine[0].level = 20;
-}
+// if (starterLvl.value === 1) {
+//   machine[0].level = 1;
+// } else if (starterLvl.value == 2) {
+//   machine[0].level = 5 / 4;
+// } else if (starterLvl.value == 3) {
+//   machine[0].level = 5 / 3;
+// } else if (starterLvl.value == 4) {
+//   machine[0].level = 5 / 2;
+// } else if (starterLvl.value == 5) {
+//   machine[0].level = 5;
+// } else if (starterLvl.value == 6) {
+//   machine[0].level = 20 / 3;
+// } else if (starterLvl.value == 7) {
+//   machine[0].level = 10;
+// } else if (starterLvl.value == 8) {
+//   machine[0].level = 20;
+// }
 
-let starterLVL = machine[0].level;
 let crafterMK1LVL = machine[1].level;
 let crafterMK2LVL = machine[2].level;
 let crafterMK3LVL = machine[3].level;
@@ -269,37 +301,45 @@ let totalFurnace = 0;
 let totalCableMaker = 0;
 let totalHydraulicPress = 0;
 
-function needsType() {
-  if (readExcelFile(filePath, colRow) >= 0 && readExcelFile(filePath, colRow) <= 5) {
-    colRow = "N" + [2];
-    metalIndex = metal[readExcelFile(filePath, colRow)];
-    return metalIndex;
-  } else {
-    return "";
-  }
-}
-
 function metalI(amountPS, metalIndex) {
-
+ 
   machine[0].metalNum = metal[metalIndex];
+  starterLVLBase = machineLevelArr[0].value
+  if(starterLVLBase == 1){
+    starterLVL = 1 / 5;
+  } else if (starterLVLBase == 2){
+    starterLVL = 1 / 4;
+  } else if (starterLVLBase == 3){
+    starterLVL = 1 / 3;
+  } else if (starterLVLBase == 4){
+    starterLVL = 1 / 2;
+  } else if (starterLVLBase == 5){
+    starterLVL = 1;
+  } else if (starterLVLBase == 6){
+    starterLVL = 4 / 3;
+  } else if (starterLVLBase == 7){
+    starterLVL = 6 / 3;
+  } else if (starterLVLBase == 8){
+    starterLVL = 12 / 3;
+  }
   machine[0].amount = amountPS / starterLVL;
 
-  if (metalIndex == 0) {
-    totalStarter.amount += machine[0].amount;
-    totalStarter.copper += machine[0].amount;
-  } else if (metalIndex == 1) {
-    totalStarter.amount += machine[0].amount;
-    totalStarter.iron += machine[0].amount;
-  } else if (metalIndex == 2) {
-    totalStarter.amount += machine[0].amount;
-    totalStarter.gold += machine[0].amount;
-  } else if (metalIndex == 3) {
-    totalStarter.amount += machine[0].amount;
-    totalStarter.aluminium += machine[0].amount;
-  } else if (metalIndex == 4) {
-    totalStarter.amount += machine[0].amount;
-    totalStarter.diamond += machine[0].amount;
-  }
+  // if (metalIndex == 0) {
+  //   totalStarter.amount += machine[0].amount;
+  //   totalStarter.copper += machine[0].amount;
+  // } else if (metalIndex == 1) {
+  //   totalStarter.amount += machine[0].amount;
+  //   totalStarter.iron += machine[0].amount;
+  // } else if (metalIndex == 2) {
+  //   totalStarter.amount += machine[0].amount;
+  //   totalStarter.gold += machine[0].amount;
+  // } else if (metalIndex == 3) {
+  //   totalStarter.amount += machine[0].amount;
+  //   totalStarter.aluminium += machine[0].amount;
+  // } else if (metalIndex == 4) {
+  //   totalStarter.amount += machine[0].amount;
+  //   totalStarter.diamond += machine[0].amount;
+  // }
 
   metalMade = machine[0].amount + " " + machine[0].name + " " + machine[0].metalNum;
 
@@ -308,8 +348,8 @@ function metalI(amountPS, metalIndex) {
 
 function wire(amountPS, metalIndex) {
 
-  machine[4].amount = amountPS / wireMakerLVL;
-  totalWireMaker += machine[4].amount;
+  machine[4].amount = amountPS / wireMakerLvl.value;
+  // totalWireMaker += machine[4].amount;
 
   wireMade = metalI(amountPS, metalIndex) + " --> " + machine[4].amount + " " + machine[4].name;
 

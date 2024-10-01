@@ -14,6 +14,7 @@
       type="number"
       min="0"
       placeholder="eg. 1"
+      id="amountPerSecond"
       required
     />
 
@@ -51,11 +52,11 @@
     </select>
     <div></di>
     <select id="materialDropdown">
-      <option>Copper</option>
-      <option>Iron</option>
-      <option>Gold</option>
-      <option>Aluminium</option>
-      <option>Diamond</option>
+      <option value="copper">Copper</option>
+      <option value="iron">Iron</option>
+      <option value="gold">Gold</option>
+      <option value="aluminium">Aluminium</option>
+      <option value="diamond">Diamond</option>
     </select>
 <p><strong>Machine Levels</strong></p>
 <p>Starter
@@ -155,7 +156,9 @@
 <input id="maxAll" type="checkbox">Max All</input>
 </label>
 <p id="isMaxed"></p>
-    <output>Output
+<button type="submit" id="calculateButton">Calculate</button>
+<div></div>
+    <output id="results">Output
     
     </output>
     
