@@ -22,20 +22,7 @@
 //   document.getElementById('message').innerHTML = "Hello, World!";
 // }
 
-
-const selectedItem = document.querySelector("item").value;
-
-function checkItem() {
-  if (selectedItem === "metal") {
-      console.log("It's metal");
-      document.getElementById("message").innerHTML = "It's metal"; // Display message in the div
-  } else {
-      console.log("It's not metal");
-      document.getElementById("message").innerHTML = "It's not metal"; // Display message in the div
-  }
-}
-
-
+alert("hello");
 
 let amountPS = 1;
 let make;
