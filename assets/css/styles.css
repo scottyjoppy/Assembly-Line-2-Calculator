@@ -3,3 +3,9 @@ h1 {
     padding: auto;
     text-align: center;
 }
+#materialDropdown {
+    visibility: hidden;
+}
+.placeholder {
+    color: grey;
+}

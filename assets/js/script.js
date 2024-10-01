@@ -34,22 +34,20 @@
 // }
 
 // Get references to the elements
-const materialSelect = document.getElementById("item");
-const checkMaterialBtn = document.getElementById("checkMaterialBtn");
-const result = document.getElementById("result");
+const list = document.getElementById("item");
 
-// Add an event listener to the button
-checkMaterialBtn.addEventListener("click", function() {
-  // Get the selected value from the dropdown
-  const selectedMaterial = materialSelect.value;
-  
-  // Check if the selected value is "metal"
-  if (selectedMaterial === "metal") {
-    result.textContent = "You selected Metal!";
+const materialDropdown = document.getElementById("materialDropdown");
+const materialDropdownStyle = materialDropdown.style.visibility;
+
+list.addEventListener("change", showHide);
+
+function showHide(){
+  const listItem = list.value;
+  if(listItem === "metal" || listItem === "wire" || listItem === "gear" || listItem === "liquid" || listItem === "plate" || listItem === "cable"){
+    materialDropdown.style.visibility = "visible";
   } else {
-    result.textContent = `You selected ${selectedMaterial}.`;
-  }
-});
+    materialDropdown.style.visibility = "hidden";
+  }}
 
 
 
