@@ -23,7 +23,7 @@
 // }
 
 
-const selectedItem = document.querySelector("#metal");
+const selectedItem = document.querySelector("item").value;
 
 function checkItem() {
   if (selectedItem === "metal") {
