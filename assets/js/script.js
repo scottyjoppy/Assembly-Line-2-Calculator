@@ -22,7 +22,36 @@
 //   document.getElementById('message').innerHTML = "Hello, World!";
 // }
 
-alert("hello");
+// const selectTheItem = document.getElementById("item");
+// const selectedItem = selectTheItem.value;
+
+// function isItMetal(){
+//   if(selectedItem === "metal"){
+//     alert("it's metal");
+//   } else {
+//     alert("it's not metal");
+//   }
+// }
+
+// Get references to the elements
+const materialSelect = document.getElementById("item");
+const checkMaterialBtn = document.getElementById("checkMaterialBtn");
+const result = document.getElementById("result");
+
+// Add an event listener to the button
+checkMaterialBtn.addEventListener("click", function() {
+  // Get the selected value from the dropdown
+  const selectedMaterial = materialSelect.value;
+  
+  // Check if the selected value is "metal"
+  if (selectedMaterial === "metal") {
+    result.textContent = "You selected Metal!";
+  } else {
+    result.textContent = `You selected ${selectedMaterial}.`;
+  }
+});
+
+
 
 let amountPS = 1;
 let make;

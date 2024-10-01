@@ -20,7 +20,7 @@
     <div></div>
     <select id="item">
       <option value="metal">Metal</option>
-      <option>Wire</option>
+      <option value="wire">Wire</option>
       <option>Gear</option>
       <option>Liquid</option>
       <option>Plate</option>
@@ -46,8 +46,11 @@
       <option>AI Robot Arms</option>
       <option>AI Robot Body</option>
       <option>AI Robot</option>
-
     </select>
+
+    <button type="button" id="checkMaterialBtn">Check Material</button>
+    <p id="result"></p>
+
     <div></div>
     <select>
       <option>Copper</option>
@@ -57,9 +60,6 @@
       <option>Diamond</option>
     </select>
     
-    <button onclick="checkItem()" id="checkButtons">Check Item</button>
-
-    <div id="message"></div>
     <script src="assets/js/script.js"></script>
     
   </body>
