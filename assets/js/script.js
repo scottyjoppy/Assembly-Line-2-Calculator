@@ -1,26 +1,40 @@
-const XLSX = require('xlsx');
-const fs = require('fs');
+// const XLSX = require('xlsx');
+// const fs = require('fs');
 
-const filePath = 'C:/Users/alexa/Documents/Projects/Assembly Line/Assembly-Line-2-Calculator/assets/Assembly-Database.xlsx';
+// const filePath = 'C:/Users/alexa/Documents/Projects/Assembly Line/Assembly-Line-2-Calculator/assets/Assembly-Database.xlsx';
 
-let colArray = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
-let rowArray = Array.from({ length: 1000 }, (_, i) => i + 1);
-let colRow = colArray[0] + rowArray[0];
+// let colArray = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
+// let rowArray = Array.from({ length: 1000 }, (_, i) => i + 1);
+// let colRow = colArray[0] + rowArray[0];
 
-function readExcelFile(filePath, colRow) {
-  const workbook = XLSX.readFile(filePath);
+// function readExcelFile(filePath, colRow) {
+//   const workbook = XLSX.readFile(filePath);
 
-  const sheetName = 'checks';
-  const worksheet = workbook.Sheets[sheetName];
+//   const sheetName = 'checks';
+//   const worksheet = workbook.Sheets[sheetName];
 
-  const cell = worksheet[colRow];
+//   const cell = worksheet[colRow];
 
-  return cell.v;
+//   return cell.v;
+// }
+
+// function displayMessage() {
+//   document.getElementById('message').innerHTML = "Hello, World!";
+// }
+
+
+const selectedItem = document.querySelector("#metal");
+
+function checkItem() {
+  if (selectedItem === "metal") {
+      console.log("It's metal");
+      document.getElementById("message").innerHTML = "It's metal"; // Display message in the div
+  } else {
+      console.log("It's not metal");
+      document.getElementById("message").innerHTML = "It's not metal"; // Display message in the div
+  }
 }
 
-function displayMessage() {
-  document.getElementById('message').innerHTML = "Hello, World!";
-}
 
 
 let amountPS = 1;
@@ -473,8 +487,6 @@ function aiRobot(amountPS) {
 
   aiRobotMade = cable(amountPS * 5, 4) + "\n" + plate(amountPS * 10, 1) + "\n" + aiRobotHead(amountPS) + "\n" + aiRobotBody(amountPS) + " --> " + machine[3].amount + " " + machine[3].name;
 
-  document.getElementById('message').innerHTML = aiRobotMade;
-
   return aiRobotMade;
 }
 
@@ -624,37 +636,37 @@ if (colValue == 0) {
 
 }
 
-totalStarter.amount += " Starters";
-totalCrafterMK1 += " CraftersMK1";
-totalCrafterMK2 +=" CrafterMK2";
-totalCrafterMK3 += " CraftersMK3";
-totalWireMaker += " Wire Makers";
-totalCutter += " Cutters";
-totalFurnace += " Furnaces";
-totalCableMaker += " Cable Makers";
-totalHydraulicPress += " Hyrdaulic Presses";
+// totalStarter.amount += " Starters";
+// totalCrafterMK1 += " CraftersMK1";
+// totalCrafterMK2 +=" CrafterMK2";
+// totalCrafterMK3 += " CraftersMK3";
+// totalWireMaker += " Wire Makers";
+// totalCutter += " Cutters";
+// totalFurnace += " Furnaces";
+// totalCableMaker += " Cable Makers";
+// totalHydraulicPress += " Hyrdaulic Presses";
 
-console.log("\n" + totalStarter.amount);
-if(totalStarter.copper !== 0) {
-  console.log(totalStarter.copper + " Copper Starters")
-}
-if(totalStarter.iron !== 0) {
-  console.log(totalStarter.iron + " Iron Starters")
-}
-if(totalStarter.gold !== 0) {
-  console.log(totalStarter.gold + " Gold Starters")
-}
-if(totalStarter.aluminium !== 0) {
-  console.log(totalStarter.aluminium + " Aluminium Starters")
-}
-if(totalStarter.diamond !== 0) {
-  console.log(totalStarter.diamond + " Diamond Starters")
-}
-console.log(totalCrafterMK1);
-console.log(totalCrafterMK2);
-console.log(totalCrafterMK3);
-console.log(totalWireMaker);
-console.log(totalCutter);
-console.log(totalFurnace);
-console.log(totalCableMaker);
-console.log(totalHydraulicPress);
+// console.log("\n" + totalStarter.amount);
+// if(totalStarter.copper !== 0) {
+//   console.log(totalStarter.copper + " Copper Starters")
+// }
+// if(totalStarter.iron !== 0) {
+//   console.log(totalStarter.iron + " Iron Starters")
+// }
+// if(totalStarter.gold !== 0) {
+//   console.log(totalStarter.gold + " Gold Starters")
+// }
+// if(totalStarter.aluminium !== 0) {
+//   console.log(totalStarter.aluminium + " Aluminium Starters")
+// }
+// if(totalStarter.diamond !== 0) {
+//   console.log(totalStarter.diamond + " Diamond Starters")
+// }
+// console.log(totalCrafterMK1);
+// console.log(totalCrafterMK2);
+// console.log(totalCrafterMK3);
+// console.log(totalWireMaker);
+// console.log(totalCutter);
+// console.log(totalFurnace);
+// console.log(totalCableMaker);
+// console.log(totalHydraulicPress);

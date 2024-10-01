@@ -9,10 +9,57 @@
   <body>
     <h1>Assembly Line Calc</h1>
     <p>Here you can plan your factories</p>
-    <div>
-    </div>
-    <button onclick="aiRobot(amountPS)">Give Amount</button>
-    <p id="message">Whadayawant</p>
+    <div>Amount</div>
+    <input
+      type="number"
+      min= "0"
+      placeholder="eg. 1"
+    />
+
+    <div>Item</div>
+    <div></div>
+    <select id="item">
+      <option value="metal">Metal</option>
+      <option>Wire</option>
+      <option>Gear</option>
+      <option>Liquid</option>
+      <option>Plate</option>
+      <option>Cable</option>
+      <option>Circuit</option>
+      <option>Server Rack</option>
+      <option>Battery</option>
+      <option>Engine</option>
+      <option>Solar Cell</option>
+      <option>Electric Board</option>
+      <option>Heater Plate</option>
+      <option>Advanced Engine</option>
+      <option>Lazer</option>
+      <option>Solar Panel</option>
+      <option>Power Supply</option>
+      <option>Fan</option>
+      <option>Processor</option>
+      <option>Computer</option>
+      <option>Super Computer</option>
+      <option>AI Processor</option>
+      <option>AI Robot Head</option>
+      <option>Electric Engine</option>
+      <option>AI Robot Arms</option>
+      <option>AI Robot Body</option>
+      <option>AI Robot</option>
+
+    </select>
+    <div></div>
+    <select>
+      <option>Copper</option>
+      <option>Iron</option>
+      <option>Gold</option>
+      <option>Aluminium</option>
+      <option>Diamond</option>
+    </select>
+    
+    <button onclick="checkItem()" id="checkButtons">Check Item</button>
+
+    <div id="message"></div>
     <script src="assets/js/script.js"></script>
     
   </body>
