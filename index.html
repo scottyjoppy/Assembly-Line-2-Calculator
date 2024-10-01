@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
-    <h1>Assembly Line Calc</h1>
+    <h1>Assembly Line 2 Calculator</h1>
     <p>Here you can plan your factories</p>
-    <div>Amount</div>
+    <div>Amount/ps</div>
     <input
       type="number"
-      min= "0"
+      min="0"
       placeholder="eg. 1"
+      required
     />
 
     <div>Item</div>
@@ -25,7 +26,7 @@
       <option value="gear">Gear</option>
       <option value="liquid">Liquid</option>
       <option value="plate">Plate</option>
-      <option>Cable</option>
+      <option value="cable">Cable</option>
       <option>Circuit</option>
       <option>Server Rack</option>
       <option>Battery</option>
@@ -56,8 +57,108 @@
       <option>Aluminium</option>
       <option>Diamond</option>
     </select>
+<p><strong>Machine Levels</strong></p>
+<p>Starter
+  <select id="starterLvl">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+  </select>
+  <span id="starterSpeed">0.2 Items/ps</span>
+</p>
+<p>Wire Maker
+  <select id="wireMakerLvl">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <span id="wireMakerSpeed">0.2 Items/ps</span>
+</p>
+<p>Cutter
+  <select id="cutterLvl">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <span id="cutterSpeed">0.2 Items/ps</span>
+</p>
+<p>Furnace
+  <select id="furnaceLvl">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <span id="furnaceSpeed">0.2 Items/ps</span>
+</p>
+<p>Cable Maker
+  <select id="cableMakerLvl">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <span id="cableMakerSpeed">0.2 Items/ps</span>
+</p>
+<p>Hydraulic Press
+  <select id="hyrdaulicPressLvl">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <span id="hydraulicPressSpeed">0.2 Items/ps</span>
+</p>
+<p>Crafter MK1
+  <select id="crafterMK1Lvl">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <span id="crafterMK1Speed">0.2 Items/ps</span>
+</p>
+<p>Crafter MK2
+  <select id="crafterMK2Lvl">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <span id="crafterMK2Speed">0.2 Items/ps</span>
+</p>
+<p>Crafter MK3
+  <select id="crafterMK3Lvl">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <span id="crafterMK3Speed">0.2 Items/ps</span>
+</p>
+<label>
+<input id="maxAll" type="checkbox">Max All</input>
+</label>
+<p id="isMaxed"></p>
+    <output>Output
     
-    <script src="assets/js/script.js"></script>
+    </output>
     
+  <script src="assets/js/script.js"></script>
   </body>
 </html>

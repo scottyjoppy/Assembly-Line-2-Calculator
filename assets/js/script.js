@@ -1,39 +1,3 @@
-// const XLSX = require('xlsx');
-// const fs = require('fs');
-
-// const filePath = 'C:/Users/alexa/Documents/Projects/Assembly Line/Assembly-Line-2-Calculator/assets/Assembly-Database.xlsx';
-
-// let colArray = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
-// let rowArray = Array.from({ length: 1000 }, (_, i) => i + 1);
-// let colRow = colArray[0] + rowArray[0];
-
-// function readExcelFile(filePath, colRow) {
-//   const workbook = XLSX.readFile(filePath);
-
-//   const sheetName = 'checks';
-//   const worksheet = workbook.Sheets[sheetName];
-
-//   const cell = worksheet[colRow];
-
-//   return cell.v;
-// }
-
-// function displayMessage() {
-//   document.getElementById('message').innerHTML = "Hello, World!";
-// }
-
-// const selectTheItem = document.getElementById("item");
-// const selectedItem = selectTheItem.value;
-
-// function isItMetal(){
-//   if(selectedItem === "metal"){
-//     alert("it's metal");
-//   } else {
-//     alert("it's not metal");
-//   }
-// }
-
-// Get references to the elements
 const list = document.getElementById("item");
 
 const materialDropdown = document.getElementById("materialDropdown");
@@ -41,13 +5,111 @@ const materialDropdownStyle = materialDropdown.style.visibility;
 
 list.addEventListener("change", showHide);
 
-function showHide(){
+function showHide() {
   const listItem = list.value;
-  if(listItem === "metal" || listItem === "wire" || listItem === "gear" || listItem === "liquid" || listItem === "plate" || listItem === "cable"){
+  if (listItem === "metal" || listItem === "wire" || listItem === "gear" || listItem === "liquid" || listItem === "plate" || listItem === "cable") {
     materialDropdown.style.visibility = "visible";
   } else {
     materialDropdown.style.visibility = "hidden";
-  }}
+  }
+}
+
+const starterLvl = document.getElementById("starterLvl");
+const starterSpeed = document.getElementById("starterSpeed");
+const wireMakerLvl = document.getElementById("wireMakerLvl");
+const wireMakerSpeed = document.getElementById("wireMakerSpeed");
+const cutterLvl = document.getElementById("cutterLvl");
+const cutterSpeed = document.getElementById("cutterSpeed");
+const furnaceLvl = document.getElementById("furnaceLvl");
+const furnaceSpeed = document.getElementById("furnaceSpeed");
+const cableMakerLvl = document.getElementById("cableMakerLvl");
+const cableMakerSpeed = document.getElementById("cableMakerSpeed");
+const hydraulicPressLvl = document.getElementById("hyrdaulicPressLvl");
+const hyrdaulicPressSpeed = document.getElementById("hydraulicPressSpeed");
+const crafterMK1Lvl = document.getElementById("crafterMK1Lvl");
+const crafterMK1Speed = document.getElementById("crafterMK1Speed");
+const crafterMK2Lvl = document.getElementById("crafterMK2Lvl");
+const crafterMK2Speed = document.getElementById("crafterMK2Speed");
+const crafterMK3Lvl = document.getElementById("crafterMK3Lvl");
+const crafterMK3Speed = document.getElementById("crafterMK3Speed");
+
+starterLvl.addEventListener("change", function () {
+  showOutput(this, starterSpeed);
+})
+wireMakerLvl.addEventListener("change", function () {
+  showOutput(this, wireMakerSpeed);
+})
+cutterLvl.addEventListener("change", function () {
+  showOutput(this, cutterSpeed);
+})
+furnaceLvl.addEventListener("change", function () {
+  showOutput(this, furnaceSpeed);
+})
+cableMakerLvl.addEventListener("change", function () {
+  showOutput(this, cableMakerSpeed);
+})
+hydraulicPressLvl.addEventListener("change", function () {
+  showOutput(this, hyrdaulicPressSpeed);
+})
+crafterMK1Lvl.addEventListener("change", function () {
+  showOutput(this, crafterMK1Speed);
+})
+crafterMK2Lvl.addEventListener("change", function () {
+  showOutput(this, crafterMK2Speed);
+})
+crafterMK3Lvl.addEventListener("change", function () {
+  showOutput(this, crafterMK3Speed);
+})
+
+function showOutput(machineLevel, machineSpeedInc) {
+  const levelValue = machineLevel.value;
+  const machineSpeed = machineSpeedInc;
+
+  if (levelValue === "1") {
+    machineSpeed.textContent = "0.2 Items/ps";
+  } else if (levelValue === "2") {
+    machineSpeed.textContent = "0.25 Items/ps";
+  } else if (levelValue === "3") {
+    machineSpeed.textContent = "0.33 Items/ps";
+  } else if (levelValue === "4") {
+    machineSpeed.textContent = "0.5 Items/ps";
+  } else if (levelValue === "5") {
+    machineSpeed.textContent = "1 Items/ps";
+  } else if (levelValue === "6") {
+    machineSpeed.textContent = "1.33 Items/ps";
+  } else if (levelValue === "7") {
+    machineSpeed.textContent = "2 Items/ps";
+  } else if (levelValue === "8") {
+    machineSpeed.textContent = "4 Items/ps";
+  }
+}
+
+const maxAll = document.getElementById("maxAll");
+const isMaxed = document.getElementById("isMaxed");
+
+
+
+let machineLevelArr = [starterLvl, wireMakerLvl, cutterLvl, furnaceLvl, cableMakerLvl, hydraulicPressLvl, crafterMK1Lvl, crafterMK2Lvl, crafterMK3Lvl]
+let previousLevel = new Array(machineLevelArr.length);
+
+maxAll.addEventListener("change", function() {
+  if(this.checked) {
+    //stpre current values
+    for(let i = 0; i < machineLevelArr.length; i++){
+      previousLevel[i] = machineLevelArr[i].value;
+      machineLevelArr[i].value = "5";
+    }
+    starterLvl.value = "8"; // starters can go to level 8
+  } else {
+    for(let i = 0; i < machineLevelArr.length; i++){
+      if(previousLevel[i] !== undefined) { //checks if it had previos value
+        machineLevelArr[i].value = previousLevel[i]; //reverts to it
+      }
+    }
+  }
+
+})
+
 
 
 
@@ -162,21 +224,21 @@ let colValue = readExcelFile(filePath, colRow);
 let index = 1;
 let metalIndex = 4; // make if statement for certain items need type specified
 
-if(machine[0].level == 1) {
-  machine[0].level = 1 ;
-} else if(machine[0].level == 2) {
-  machine[0].level = 5/4;
-} else if(machine[0].level == 3) {
-  machine[0].level = 5/3;
-} else if(machine[0].level == 4) {
-  machine[0].level = 5/2;
-} else if(machine[0].level == 5) {
+if (machine[0].level == 1) {
+  machine[0].level = 1;
+} else if (machine[0].level == 2) {
+  machine[0].level = 5 / 4;
+} else if (machine[0].level == 3) {
+  machine[0].level = 5 / 3;
+} else if (machine[0].level == 4) {
+  machine[0].level = 5 / 2;
+} else if (machine[0].level == 5) {
   machine[0].level = 5;
-} else if(machine[0].level == 6) {
-  machine[0].level = 20/3;
-} else if(machine[0].level == 7) {
+} else if (machine[0].level == 6) {
+  machine[0].level = 20 / 3;
+} else if (machine[0].level == 7) {
   machine[0].level = 10;
-} else if(machine[0].level == 8) {
+} else if (machine[0].level == 8) {
   machine[0].level = 20;
 }
 
@@ -221,8 +283,8 @@ function metalI(amountPS, metalIndex) {
 
   machine[0].metalNum = metal[metalIndex];
   machine[0].amount = amountPS / starterLVL;
-  
-  if(metalIndex == 0) {
+
+  if (metalIndex == 0) {
     totalStarter.amount += machine[0].amount;
     totalStarter.copper += machine[0].amount;
   } else if (metalIndex == 1) {
@@ -349,7 +411,7 @@ function electricBoard(amountPS) {
   machine[1].amount = amountPS / crafterMK1LVL;
   totalCrafterMK1 += machine[1].amount;
 
-  electricBoardMade = metalI(amountPS, 3) + "\n" +  wire(amountPS, 0) + " --> " + machine[1].amount + " " + machine[1].name;
+  electricBoardMade = metalI(amountPS, 3) + "\n" + wire(amountPS, 0) + " --> " + machine[1].amount + " " + machine[1].name;
 
   return electricBoardMade;
 }
@@ -449,7 +511,7 @@ function aiProcessor(amountPS) {
   machine[3].amount = amountPS / crafterMK3LVL;
   totalCrafterMK3 += machine[3].amount;
 
-  aiProcessorMade = circuit(amountPS * 10) + "\n" + cable(amountPS * 4, 0) + "\n" + plate(amountPS * 6, 0) + "\n" + superComputer(amountPS)  + " --> " + machine[3].amount + " " + machine[3].name;
+  aiProcessorMade = circuit(amountPS * 10) + "\n" + cable(amountPS * 4, 0) + "\n" + plate(amountPS * 6, 0) + "\n" + superComputer(amountPS) + " --> " + machine[3].amount + " " + machine[3].name;
 
   return aiProcessorMade;
 }
@@ -511,13 +573,13 @@ if (colValue == 0) {
 
   metalIndex = readExcelFile(filePath, colRow);
   console.log(metalI(amountPS, metalIndex));
-  console.log("L> " + amountPS + " " + item[0].name);  
+  console.log("L> " + amountPS + " " + item[0].name);
 
 } else if (colValue == 1) {
 
   metalIndex = readExcelFile(filePath, colRow);
   console.log(wire(amountPS, metalIndex));
-  console.log("L> " + amountPS + " " + item[1].name + " " + metal[metalIndex]);  
+  console.log("L> " + amountPS + " " + item[1].name + " " + metal[metalIndex]);
 
 } else if (colValue == 2) {
 
