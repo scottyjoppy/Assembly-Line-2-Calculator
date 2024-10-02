@@ -14,36 +14,198 @@ function showHide() {
   }
 }
 
-function getMetal(){
-if(materialDropdown.value === "copper"){
-  return metalIndex = 0;
-} else if (materialDropdown.value === "iron"){
-  return metalIndex = 1;
-} else if (materialDropdown.value === "gold"){
-  return metalIndex = 2;
-} else if (materialDropdown.value === "aluminium"){
-  return metalIndex = 3;
-} else if (materialDropdown.value === "diamond"){
-  return metalIndex = 4;
-}
+function getMetal() {
+  if (materialDropdown.value === "copper") {
+    return metalIndex = 0;
+  } else if (materialDropdown.value === "iron") {
+    return metalIndex = 1;
+  } else if (materialDropdown.value === "gold") {
+    return metalIndex = 2;
+  } else if (materialDropdown.value === "aluminium") {
+    return metalIndex = 3;
+  } else if (materialDropdown.value === "diamond") {
+    return metalIndex = 4;
+  }
 }
 
 const amountPerSecond = document.getElementById("amountPerSecond");
 
 function calculate() {
-const listItem = list.value
-const amountPS = amountPerSecond.value;
-let metalIndex = getMetal();
+  totalStarter = 0;
+  totalWireMaker = 0;
+  totalCutter = 0;
+  totalFurnace = 0;
+  totalCableMaker = 0;
+  totalHydraulicPress = 0;
+  totalCrafterMK1 = 0;
+  totalCrafterMK2 = 0;
+  totalCrafterMK3 = 0;
 
-  if(listItem === "metal"){
+  const listItem = list.value
+  const amountPS = amountPerSecond.value;
+  let metalIndex = getMetal();
+
+  if (listItem === "metal") {
     const result = metalI(amountPS, metalIndex);
-    results.textContent = result;
-
-  } else if(listItem === "wire") {
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "wire") {
     const result = wire(amountPS, metalIndex);
-    results.textContent = result;;
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "gear") {
+    const result = gear(amountPS, metalIndex);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "liquid") {
+    const result = liquid(amountPS, metalIndex);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "plate") {
+    const result = plate(amountPS, metalIndex);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "cable") {
+    const result = cable(amountPS, metalIndex);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "circuit") {
+    const result = circuit(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "serverRack") {
+    const result = serverRack(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "battery") {
+    const result = battery(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "engine") {
+    const result = engine(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "solarCell") {
+    const result = solarCell(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "electricBoard") {
+    const result = electricBoard(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "heaterPlate") {
+    const result = heaterPlate(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "advancedEngine") {
+    const result = advancedEngine(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "lazer") {
+    const result = lazer(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if (listItem === "solarPanel") {
+    const result = solarPanel(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "powerSupply") {
+    const result = powerSupply(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "fan") {
+    const result = fan(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "processor") {
+    const result = processor(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "computer") {
+    const result = computer(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "superComputer") {
+    const result = superComputer(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "aiProcessor") {
+    const result = aiProcessor(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "aiRobotHead") {
+    const result = aiRobotHead(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "electricEngine") {
+    const result = electricEngine(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "aiRobotArm") {
+    const result = aiRobotArm(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "robotBody") {
+    const result = robotBody(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
+  } else if(listItem === "aiRobot") {
+    const result = aiRobot(amountPS);
+    results.innerHTML = result;
+    totalMachine.textContent = displayWords();
   }
+
+  function displayWords() {
+    if (totalStarter > 0) {
+      totalStarter = " || " + totalStarter + " Starters" + " || ";
+    } else {
+      totalStarter = "";
+    }
+    if (totalWireMaker > 0) {
+      totalWireMaker += " Wire Makers" + " || ";
+    } else {
+      totalWireMaker = "";
+    }
+    if (totalCutter > 0) {
+      totalCutter += " Cutters" + " || ";
+    } else {
+      totalCutter = "";
+    }
+    if (totalFurnace > 0) {
+      totalFurnace += " Furnaces" + " || ";
+    } else {
+      totalFurnace = "";
+    }
+    if (totalCableMaker > 0) {
+      totalCableMaker += " Cable Makers" + " || ";
+    } else {
+      totalCableMaker = "";
+    }
+    if (totalHydraulicPress > 0) {
+      totalHydraulicPress += " Hydraulic Presses" + " || ";
+    } else {
+      totalHydraulicPress = "";
+    }
+    if (totalCrafterMK1 > 0) {
+      totalCrafterMK1 += " Crafters MK1" + " || ";
+    } else {
+      totalCrafterMK1 = "";
+    }
+    if (totalCrafterMK2 > 0) {
+      totalCrafterMK2 += " Crafters MK2" + " || ";
+    } else {
+      totalCrafterMK2 = "";
+    }
+    if (totalCrafterMK3 > 0) {
+      totalCrafterMK3 += " Crafters MK3" + " || ";
+    } else {
+      totalCrafterMK3 = "";
+    }
+    return totalStarter + totalWireMaker + totalCutter + totalFurnace + totalCableMaker + totalHydraulicPress + totalCrafterMK1 + totalCrafterMK2 + totalCrafterMK3
+  }
+
 }
+const totalMachine = document.getElementById("totalMachine");
 
 const results = document.getElementById("results")
 
@@ -124,62 +286,76 @@ function showOutput(machineLevel, machineSpeedInc) {
 const maxAll = document.getElementById("maxAll");
 const isMaxed = document.getElementById("isMaxed");
 
-
-
 let machineLevelArr = [starterLvl, wireMakerLvl, cutterLvl, furnaceLvl, cableMakerLvl, hydraulicPressLvl, crafterMK1Lvl, crafterMK2Lvl, crafterMK3Lvl]
 let previousLevel = new Array(machineLevelArr.length);
 
-maxAll.addEventListener("change", function() {
-  if(this.checked) {
-    //stpre current values
-    for(let i = 0; i < machineLevelArr.length; i++){
+maxAll.addEventListener("change", function () {
+  if (this.checked) {
+    //stores current values
+    for (let i = 0; i < machineLevelArr.length; i++) {
       previousLevel[i] = machineLevelArr[i].value;
       machineLevelArr[i].value = "5";
     }
     starterLvl.value = "8"; // starters can go to level 8
+    showOutput(starterLvl, starterSpeed);
+    showOutput(wireMakerLvl, wireMakerSpeed);
+    showOutput(cutterLvl, cutterSpeed);
+    showOutput(furnaceLvl, furnaceSpeed);
+    showOutput(cableMakerLvl, cableMakerSpeed);
+    showOutput(hydraulicPressLvl, hyrdaulicPressSpeed);
+    showOutput(crafterMK1Lvl, crafterMK1Speed);
+    showOutput(crafterMK2Lvl, crafterMK2Speed);
+    showOutput(crafterMK3Lvl, crafterMK3Speed);
   } else {
-    for(let i = 0; i < machineLevelArr.length; i++){
-      if(previousLevel[i] !== undefined) { //checks if it had previos value
+    for (let i = 0; i < machineLevelArr.length; i++) {
+      if (previousLevel[i] !== undefined) { //checks if it had previos value
         machineLevelArr[i].value = previousLevel[i]; //reverts to it
       }
+      showOutput(starterLvl, starterSpeed);
+      showOutput(wireMakerLvl, wireMakerSpeed);
+      showOutput(cutterLvl, cutterSpeed);
+      showOutput(furnaceLvl, furnaceSpeed);
+      showOutput(cableMakerLvl, cableMakerSpeed);
+      showOutput(hydraulicPressLvl, hyrdaulicPressSpeed);
+      showOutput(crafterMK1Lvl, crafterMK1Speed);
+      showOutput(crafterMK2Lvl, crafterMK2Speed);
+      showOutput(crafterMK3Lvl, crafterMK3Speed);
     }
   }
 })//update the 0.2 items PS text
 
 
 
-
-
 let metal = ["Copper", "Iron", "Gold", "Aluminium", "Diamond"];
 let machine = [{
-  name: "Starter",
+  name: "Starters",
   metalNum: 0,
   level: 1,
   amount: 0
 }, {
-  name: "Crafter MK1",
+  name: "Crafters MK1",
   level: 1
 }, {
-  name: "Crafter MK2",
+  name: "Crafters MK2",
   level: 1
 }, {
-  name: "Crafter MK3",
+  name: "Crafters MK3",
   level: 1
 }, {
-  name: "Wire Maker",
+  name: "Wire Makers",
   level: 1,
   amount: 0
 }, {
-  name: "Cutter",
+  name: "Cutters",
   level: 1
 }, {
-  name: "Furnace",
+  name: "Furnaces",
   level: 1
 }, {
-  name: "Cable Maker",
+  name: "Cable Makers",
   level: 1
 }, {
-  name: "Hydraulic Press",
+  name: "Hydraulic Presses",
   level: 1
 }];
 let item = [{
@@ -238,60 +414,7 @@ let item = [{
   name: "AI Robot"
 }];
 
-colRow = "C" + [0];
-
-for (let i = 0; i <= 8; i++) {
-
-  if (readExcelFile(filePath, colRow) !== 1) {
-    machine[i].level = readExcelFile(filePath, colRow);
-  }
-
-
-
-}
-//REFERENCE TEST CELLS
-colRow = "P" + [2];
-amountPS = readExcelFile(filePath, colRow);
-colRow = "O" + [2];
-let colValue = readExcelFile(filePath, colRow);
-
-//ITEM & TYPE IS SET
-
-// if (starterLvl.value === 1) {
-//   machine[0].level = 1;
-// } else if (starterLvl.value == 2) {
-//   machine[0].level = 5 / 4;
-// } else if (starterLvl.value == 3) {
-//   machine[0].level = 5 / 3;
-// } else if (starterLvl.value == 4) {
-//   machine[0].level = 5 / 2;
-// } else if (starterLvl.value == 5) {
-//   machine[0].level = 5;
-// } else if (starterLvl.value == 6) {
-//   machine[0].level = 20 / 3;
-// } else if (starterLvl.value == 7) {
-//   machine[0].level = 10;
-// } else if (starterLvl.value == 8) {
-//   machine[0].level = 20;
-// }
-
-let crafterMK1LVL = machine[1].level;
-let crafterMK2LVL = machine[2].level;
-let crafterMK3LVL = machine[3].level;
-let wireMakerLVL = machine[4].level;
-let cutterLVL = machine[5].level;
-let furnaceLVL = machine[6].level;
-let cableMakerLVL = machine[7].level;
-let hydraulicPressLVL = machine[8].level;
-
-let totalStarter = {
-  amount: 0,
-  copper: 0,
-  iron: 0,
-  gold: 0,
-  aluminium: 0,
-  diamond: 0,
-}
+let totalStarter = 0;
 let totalCrafterMK1 = 0;
 let totalCrafterMK2 = 0;
 let totalCrafterMK3 = 0;
@@ -301,45 +424,34 @@ let totalFurnace = 0;
 let totalCableMaker = 0;
 let totalHydraulicPress = 0;
 
-function metalI(amountPS, metalIndex) {
- 
-  machine[0].metalNum = metal[metalIndex];
-  starterLVLBase = machineLevelArr[0].value
-  if(starterLVLBase == 1){
-    starterLVL = 1 / 5;
-  } else if (starterLVLBase == 2){
-    starterLVL = 1 / 4;
-  } else if (starterLVLBase == 3){
-    starterLVL = 1 / 3;
-  } else if (starterLVLBase == 4){
-    starterLVL = 1 / 2;
-  } else if (starterLVLBase == 5){
-    starterLVL = 1;
-  } else if (starterLVLBase == 6){
-    starterLVL = 4 / 3;
-  } else if (starterLVLBase == 7){
-    starterLVL = 6 / 3;
-  } else if (starterLVLBase == 8){
-    starterLVL = 12 / 3;
+function levelCalc(levelValue) {
+  if (levelValue == 1) {
+    levelValueFound = 1 / 5;
+  } else if (levelValue == 2) {
+    levelValueFound = 1 / 4;
+  } else if (levelValue == 3) {
+    levelValueFound = 1 / 3;
+  } else if (levelValue == 4) {
+    levelValueFound = 1 / 2;
+  } else if (levelValue == 5) {
+    levelValueFound = 1;
+  } else if (levelValue == 6) {
+    levelValueFound = 4 / 3;
+  } else if (levelValue == 7) {
+    levelValueFound = 6 / 3;
+  } else if (levelValue == 8) {
+    levelValueFound = 12 / 3;
   }
-  machine[0].amount = amountPS / starterLVL;
+}
 
-  // if (metalIndex == 0) {
-  //   totalStarter.amount += machine[0].amount;
-  //   totalStarter.copper += machine[0].amount;
-  // } else if (metalIndex == 1) {
-  //   totalStarter.amount += machine[0].amount;
-  //   totalStarter.iron += machine[0].amount;
-  // } else if (metalIndex == 2) {
-  //   totalStarter.amount += machine[0].amount;
-  //   totalStarter.gold += machine[0].amount;
-  // } else if (metalIndex == 3) {
-  //   totalStarter.amount += machine[0].amount;
-  //   totalStarter.aluminium += machine[0].amount;
-  // } else if (metalIndex == 4) {
-  //   totalStarter.amount += machine[0].amount;
-  //   totalStarter.diamond += machine[0].amount;
-  // }
+function metalI(amountPS, metalIndex) {
+
+  machine[0].metalNum = metal[metalIndex];
+  levelValue = machineLevelArr[0].value
+  levelCalc(levelValue);
+  starterLVL = levelValueFound;
+  machine[0].amount = amountPS / starterLVL;
+  totalStarter += machine[0].amount;
 
   metalMade = machine[0].amount + " " + machine[0].name + " " + machine[0].metalNum;
 
@@ -348,8 +460,11 @@ function metalI(amountPS, metalIndex) {
 
 function wire(amountPS, metalIndex) {
 
-  machine[4].amount = amountPS / wireMakerLvl.value;
-  // totalWireMaker += machine[4].amount;
+  levelValue = machineLevelArr[1].value
+  levelCalc(levelValue);
+  wireMakerLVL = levelValueFound;
+  machine[4].amount = amountPS / wireMakerLVL;
+  totalWireMaker += machine[4].amount;
 
   wireMade = metalI(amountPS, metalIndex) + " --> " + machine[4].amount + " " + machine[4].name;
 
@@ -358,6 +473,9 @@ function wire(amountPS, metalIndex) {
 
 function gear(amountPS, metalIndex) {
 
+  levelValue = machineLevelArr[2].value
+  levelCalc(levelValue);
+  cutterLVL = levelValueFound;
   machine[5].amount = amountPS / cutterLVL;
   totalCutter += machine[5].amount;
 
@@ -368,6 +486,9 @@ function gear(amountPS, metalIndex) {
 
 function liquid(amountPS, metalIndex) {
 
+  levelValue = machineLevelArr[3].value
+  levelCalc(levelValue);
+  furnaceLVL = levelValueFound;
   machine[6].amount = amountPS / furnaceLVL;
   totalFurnace += machine[6].amount;
 
@@ -378,6 +499,9 @@ function liquid(amountPS, metalIndex) {
 
 function plate(amountPS, metalIndex) {
 
+  levelValue = machineLevelArr[5].value
+  levelCalc(levelValue);
+  hydraulicPressLVL = levelValueFound;
   machine[8].amount = amountPS / hydraulicPressLVL;
   totalHydraulicPress += machine[8].amount;
 
@@ -388,6 +512,9 @@ function plate(amountPS, metalIndex) {
 
 function cable(amountPS, metalIndex) {
 
+  levelValue = machineLevelArr[4].value
+  levelCalc(levelValue);
+  cableMakerLVL = levelValueFound;
   machine[7].amount = amountPS / cableMakerLVL;
   totalCableMaker += machine[7].amount;
 
@@ -398,391 +525,269 @@ function cable(amountPS, metalIndex) {
 
 function circuit(amountPS) {
 
+  levelValue = machineLevelArr[6].value
+  levelCalc(levelValue);
+  crafterMK1LVL = levelValueFound;
   machine[1].amount = amountPS / crafterMK1LVL;
   totalCrafterMK1 += machine[1].amount;
 
-  circuitMade = metalI(amountPS, 2) + "\n" + wire(amountPS, 0) + " --> " + machine[1].amount + " " + machine[1].name;
+  circuitMade = metalI(amountPS, 2) + "<br>" + wire(amountPS, 0) + " --> " + machine[1].amount + " " + machine[1].name + "~Circuit";
 
   return circuitMade;
 }
 
 function serverRack(amountPS) {
 
+  levelValue = machineLevelArr[6].value
+  levelCalc(levelValue);
+  crafterMK1LVL = levelValueFound;
   machine[1].amount = amountPS / crafterMK1LVL;
   totalCrafterMK1 += machine[1].amount;
 
-  serverRackMade = metalI(amountPS, 1) + " & " + metalI(amountPS, 3) + " --> " + machine[1].amount + " " + machine[1].name;
+  serverRackMade = metalI(amountPS, 1) + " & " + metalI(amountPS, 3) + " --> " + machine[1].amount + " " + machine[1].name + "~Server Rack";
 
   return serverRackMade;
 }
 
 function battery(amountPS) {
 
+  levelValue = machineLevelArr[6].value
+  levelCalc(levelValue);
+  crafterMK1LVL = levelValueFound;
   machine[1].amount = amountPS / crafterMK1LVL;
   totalCrafterMK1 += machine[1].amount;
 
-  batteryMade = metalI(amountPS, 0) + "\n" + liquid(amountPS, 0) + " --> " + machine[1].amount + " " + machine[1].name;
+  batteryMade = metalI(amountPS, 0) + "<br>" + liquid(amountPS, 0) + " --> " + machine[1].amount + " " + machine[1].name + "~Battery";
 
   return batteryMade
 }
 
 function engine(amountPS) {
 
+  levelValue = machineLevelArr[6].value
+  levelCalc(levelValue);
+  crafterMK1LVL = levelValueFound;
   machine[1].amount = amountPS / crafterMK1LVL;
   totalCrafterMK1 += machine[1].amount;
 
-  engineMade = metalI(amountPS, 1) + "\n" + gear(amountPS, 1) + " --> " + machine[1].amount + " " + machine[1].name;
-
-  return engineMade;
+  engineMade = metalI(amountPS, 1) + "<br>" + gear(amountPS, 1) + " --> " + machine[1].amount + " " + machine[1].name + "~Engine"
 }
-
 function solarCell(amountPS) {
 
+  levelValue = machineLevelArr[6].value
+  levelCalc(levelValue);
+  crafterMK1LVL = levelValueFound;
   machine[1].amount = amountPS / crafterMK1LVL;
   totalCrafterMK1 += machine[1].amount;
 
-  solarCellMade = metalI(amountPS, 2) + "\n" + liquid(amountPS, 4) + " --> " + machine[1].amount + " " + machine[1].name;
+  solarCellMade = metalI(amountPS, 2) + "<br>" + liquid(amountPS, 4) + " --> " + machine[1].amount + " " + machine[1].name + "~Solar Cell";
 
   return solarCellMade;
 }
 
 function electricBoard(amountPS) {
 
+  levelValue = machineLevelArr[6].value
+  levelCalc(levelValue);
+  crafterMK1LVL = levelValueFound;
   machine[1].amount = amountPS / crafterMK1LVL;
   totalCrafterMK1 += machine[1].amount;
 
-  electricBoardMade = metalI(amountPS, 3) + "\n" + wire(amountPS, 0) + " --> " + machine[1].amount + " " + machine[1].name;
+  electricBoardMade = metalI(amountPS, 3) + "<br>" + wire(amountPS, 0) + " --> " + machine[1].amount + " " + machine[1].name + "~Electric Board";
 
   return electricBoardMade;
 }
 
 function heaterPlate(amountPS) {
 
+  levelValue = machineLevelArr[6].value
+  levelCalc(levelValue);
+  crafterMK1LVL = levelValueFound;
   machine[1].amount = amountPS / crafterMK1LVL;
   totalCrafterMK1 += machine[1].amount;
 
-  heaterPlateMade = metalI(amountPS, 3) + "\n" + wire(amountPS, 1) + " --> " + machine[1].amount + " " + machine[1].name;
+  heaterPlateMade = metalI(amountPS, 3) + "<br>" + wire(amountPS, 1) + " --> " + machine[1].amount + " " + machine[1].name + "~Heater Plate";
 
   return heaterPlateMade;
 }
 
 function advancedEngine(amountPS) {
 
+  levelValue = machineLevelArr[7].value
+  levelCalc(levelValue);
+  crafterMK2LVL = levelValueFound;
   machine[2].amount = amountPS / crafterMK2LVL;
   totalCrafterMK2 += machine[2].amount;
 
-  advancedEngineMade = metalI(amountPS * 10, 4) + "\n" + circuit(amountPS * 5) + "\n" + engine(amountPS * 5) + " --> " + machine[2].amount + " " + machine[2].name;
+  advancedEngineMade = metalI(amountPS * 10, 4) + "<br>" + circuit(amountPS * 5) + "<br>" + engine(amountPS * 5) + " --> " + machine[2].amount + " " + machine[2].name + "~Advanced Engine";
 
   return advancedEngineMade;
 }
 
 function lazer(amountPS) {
 
+  levelValue = machineLevelArr[7].value
+  levelCalc(levelValue);
+  crafterMK2LVL = levelValueFound;
   machine[2].amount = amountPS / crafterMK2LVL;
   totalCrafterMK2 += machine[2].amount;
 
-  lazerMade = liquid(amountPS * 5, 1) + "\n" + battery(amountPS * 5) + "\n" + heaterPlate(amountPS * 5) + " --> " + machine[2].amount + " " + machine[2].name;
+  lazerMade = liquid(amountPS * 5, 1) + "<br>" + battery(amountPS * 5) + "<br>" + heaterPlate(amountPS * 5) + " --> " + machine[2].amount + " " + machine[2].name + "~Lazer";
 
   return lazerMade;
 }
 
 function solarPanel(amountPS) {
 
+  levelValue = machineLevelArr[7].value
+  levelCalc(levelValue);
+  crafterMK2LVL = levelValueFound;
   machine[2].amount = amountPS / crafterMK2LVL;
   totalCrafterMK2 += machine[2].amount;
 
-  solarPanelMade = solarCell(amountPS * 2) + "\n" + circuit(amountPS) + "\n" + electricBoard(amountPS * 2) + " --> " + machine[2].amount + " " + machine[2].name;
+  solarPanelMade = solarCell(amountPS * 2) + "<br>" + circuit(amountPS) + "<br>" + electricBoard(amountPS * 2) + " --> " + machine[2].amount + " " + machine[2].name + "~Solar Panel";
 
   return solarPanelMade;
 }
 
 function powerSupply(amountPS) {
 
+  levelValue = machineLevelArr[7].value
+  levelCalc(levelValue);
+  crafterMK2LVL = levelValueFound;
   machine[2].amount = amountPS / crafterMK2LVL;
   totalCrafterMK2 += machine[2].amount;
 
-  powerSupplyMade = metalI(amountPS * 6, 4) + "\n" + liquid(amountPS * 3, 3) + "\n" + circuit(amountPS) + " --> " + machine[2].amount + " " + machine[2].name;
+  powerSupplyMade = metalI(amountPS * 6, 4) + "<br>" + liquid(amountPS * 3, 3) + "<br>" + circuit(amountPS) + " --> " + machine[2].amount + " " + machine[2].name + "~Power Supply";
 
   return powerSupplyMade;
 }
 
 function fan(amountPS) {
 
+  levelValue = machineLevelArr[7].value
+  levelCalc(levelValue);
+  crafterMK2LVL = levelValueFound;
   machine[2].amount = amountPS / crafterMK2LVL;
   totalCrafterMK2 += machine[2].amount;
 
-  fanMade = metalI(amountPS * 6, 3) + "\n" + gear(amountPS * 3, 4) + "\n" + circuit(amountPS) + " --> " + machine[2].amount + " " + machine[2].name;
+  fanMade = metalI(amountPS * 6, 3) + "<br>" + gear(amountPS * 3, 4) + "<br>" + circuit(amountPS) + " --> " + machine[2].amount + " " + machine[2].name + "~Fan";
 
   return fanMade;
 }
 
 function processor(amountPS) {
 
+  levelValue = machineLevelArr[7].value
+  levelCalc(levelValue);
+  crafterMK2LVL = levelValueFound;
   machine[2].amount = amountPS / crafterMK2LVL;
   totalCrafterMK2 += machine[2].amount;
 
-  processorMade = liquid(amountPS * 3, 2) + "\n" + wire(amountPS * 3, 4) + "\n" + circuit(amountPS) + " --> " + machine[2].amount + " " + machine[2].name;
+  processorMade = liquid(amountPS * 3, 2) + "<br>" + wire(amountPS * 3, 4) + "<br>" + circuit(amountPS) + " --> " + machine[2].amount + " " + machine[2].name + "~Processor";
 
   return processorMade;
 }
 
 function computer(amountPS) {
 
+  levelValue = machineLevelArr[7].value
+  levelCalc(levelValue);
+  crafterMK2LVL = levelValueFound;
   machine[2].amount = amountPS / crafterMK2LVL;
   totalCrafterMK2 += machine[2].amount;
 
-  computerMade = powerSupply(amountPS) + "\n" + fan(amountPS) + "\n" + processor(amountPS) + " --> " + machine[2].amount + " " + machine[2].name;
+  computerMade = powerSupply(amountPS) + "<br>" + fan(amountPS) + "<br>" + processor(amountPS) + " --> " + machine[2].amount + " " + machine[2].name + "~Computer";
 
   return computerMade;
 }
 
 function superComputer(amountPS) {
-
+  levelValue = machineLevelArr[8].value
+  levelCalc(levelValue);
+  crafterMK3LVL = levelValueFound;
   machine[3].amount = amountPS / crafterMK3LVL;
   totalCrafterMK3 += machine[3].amount;
 
-  superComputerMade = cable(amountPS * 3, 2) + "\n" + computer(amountPS * 2) + "\n" + serverRack(amountPS) + "\n" + circuit(amountPS * 3) + " --> " + machine[3].amount + " " + machine[3].name;
+  superComputerMade = cable(amountPS * 3, 2) + "<br>" + computer(amountPS * 2) + "<br>" + serverRack(amountPS) + "<br>" + circuit(amountPS * 3) + " --> " + machine[3].amount + " " + machine[3].name + "~Super Computer";
 
   return superComputerMade;
 }
 
 function aiProcessor(amountPS) {
 
+  levelValue = machineLevelArr[8].value
+  levelCalc(levelValue);
+  crafterMK3LVL = levelValueFound;
   machine[3].amount = amountPS / crafterMK3LVL;
   totalCrafterMK3 += machine[3].amount;
 
-  aiProcessorMade = circuit(amountPS * 10) + "\n" + cable(amountPS * 4, 0) + "\n" + plate(amountPS * 6, 0) + "\n" + superComputer(amountPS) + " --> " + machine[3].amount + " " + machine[3].name;
+  aiProcessorMade = circuit(amountPS * 10) + "<br>" + cable(amountPS * 4, 0) + "<br>" + plate(amountPS * 6, 0) + "<br>" + superComputer(amountPS) + " --> " + machine[3].amount + " " + machine[3].name + "~AI Processor";
 
   return aiProcessorMade;
 }
 
 function aiRobotHead(amountPS) {
 
+  levelValue = machineLevelArr[8].value
+  levelCalc(levelValue);
+  crafterMK3LVL = levelValueFound;
   machine[3].amount = amountPS / crafterMK3LVL;
   totalCrafterMK3 += machine[3].amount;
 
-  aiRobotHeadMade = cable(amountPS * 10, 4) + "\n" + plate(amountPS * 5, 2) + "\n" + aiProcessor(amountPS) + "\n" + circuit(amountPS * 10) + " --> " + machine[3].amount + " " + machine[3].name;
+  aiRobotHeadMade = cable(amountPS * 10, 4) + "<br>" + plate(amountPS * 5, 2) + "<br>" + aiProcessor(amountPS) + "<br>" + circuit(amountPS * 10) + " --> " + machine[3].amount + " " + machine[3].name + "~AI Robot Head";
 
   return aiRobotHeadMade;
 }
 
 function electricEngine(amountPS) {
 
+  levelValue = machineLevelArr[8].value
+  levelCalc(levelValue);
+  crafterMK3LVL = levelValueFound;
   machine[3].amount = amountPS / crafterMK3LVL;
   totalCrafterMK3 += machine[3].amount;
 
-  electricEngineMade = plate(amountPS * 5, 1) + "\n" + electricBoard(amountPS * 2) + "\n" + advancedEngine(amountPS * 2) + "\n" + battery(amountPS * 2) + " --> " + machine[3].amount + " " + machine[3].name;
+  electricEngineMade = plate(amountPS * 5, 1) + "<br>" + electricBoard(amountPS * 2) + "<br>" + advancedEngine(amountPS * 2) + "<br>" + battery(amountPS * 2) + " --> " + machine[3].amount + " " + machine[3].name + "~Electric Engine";
 
   return electricEngineMade;
 }
 
 function aiRobotArm(amountPS) {
 
+  levelValue = machineLevelArr[8].value
+  levelCalc(levelValue);
+  crafterMK3LVL = levelValueFound;
   machine[3].amount = amountPS / crafterMK3LVL;
   totalCrafterMK3 += machine[3].amount;
 
-  aiRobotArmMade = metalI(amountPS * 8, 1) + "\n" + cable(amountPS * 3, 3) + "\n" + plate(amountPS * 2, 3) + "\n" + lazer(amountPS * 2) + " --> " + machine[3].amount + " " + machine[3].name;
+  aiRobotArmMade = metalI(amountPS * 8, 1) + "<br>" + cable(amountPS * 3, 3) + "<br>" + plate(amountPS * 2, 3) + "<br>" + lazer(amountPS * 2) + " --> " + machine[3].amount + " " + machine[3].name + "~AI Robot Arm";
 
   return aiRobotArmMade;
 }
 
 function aiRobotBody(amountPS) {
 
+  levelValue = machineLevelArr[8].value
+  levelCalc(levelValue);
+  crafterMK3LVL = levelValueFound;
   machine[3].amount = amountPS / crafterMK3LVL;
   totalCrafterMK3 += machine[3].amount;
 
-  aiRobotBodyMade = electricBoard(amountPS * 5) + "\n" + aiRobotArm(amountPS) + "\n" + solarPanel(amountPS * 2) + "\n" + electricEngine(amountPS) + " --> " + machine[3].amount + " " + machine[3].name;
+  aiRobotBodyMade = electricBoard(amountPS * 5) + "<br>" + aiRobotArm(amountPS) + "<br>" + solarPanel(amountPS * 2) + "<br>" + electricEngine(amountPS) + " --> " + machine[3].amount + " " + machine[3].name + "~AI Robot Body";
 
   return aiRobotBodyMade;
 }
 
 function aiRobot(amountPS) {
 
+  levelValue = machineLevelArr[8].value
+  levelCalc(levelValue);
+  crafterMK3LVL = levelValueFound;
   machine[3].amount = amountPS / crafterMK3LVL;
   totalCrafterMK3 += machine[3].amount;
 
-  aiRobotMade = cable(amountPS * 5, 4) + "\n" + plate(amountPS * 10, 1) + "\n" + aiRobotHead(amountPS) + "\n" + aiRobotBody(amountPS) + " --> " + machine[3].amount + " " + machine[3].name;
+  aiRobotMade = cable(amountPS * 5, 4) + "<br>" + plate(amountPS * 10, 1) + "<br>" + aiRobotHead(amountPS) + "<br>" + aiRobotBody(amountPS) + " --> " + machine[3].amount + " " + machine[3].name + "~AI Robot";
 
   return aiRobotMade;
 }
-
-//WHAT YOU WANT (with the checker for type required)
-console.log("You want " + amountPS + " " + make + " " + needsType());
-//WHAT YOU NEED
-if (colValue == 0) {
-
-  metalIndex = readExcelFile(filePath, colRow);
-  console.log(metalI(amountPS, metalIndex));
-  console.log("L> " + amountPS + " " + item[0].name);
-
-} else if (colValue == 1) {
-
-  metalIndex = readExcelFile(filePath, colRow);
-  console.log(wire(amountPS, metalIndex));
-  console.log("L> " + amountPS + " " + item[1].name + " " + metal[metalIndex]);
-
-} else if (colValue == 2) {
-
-  metalIndex = readExcelFile(filePath, colRow);
-  console.log(gear(amountPS, metalIndex));
-  console.log("L> " + amountPS + " " + item[2].name + " " + metal[metalIndex]);
-
-} else if (colValue == 3) {
-
-  metalIndex = readExcelFile(filePath, colRow);
-  console.log(liquid(amountPS, metalIndex));
-  console.log("L> " + amountPS + " " + item[3].name + " " + metal[metalIndex]);
-
-} else if (colValue == 4) {
-
-  metalIndex = readExcelFile(filePath, colRow);
-  console.log(plate(amountPS, metalIndex));
-  console.log("L> " + amountPS + " " + item[4].name + " " + metal[metalIndex]);
-
-} else if (colValue == 5) {
-
-  metalIndex = readExcelFile(filePath, colRow);
-  console.log(cable(amountPS, metalIndex));
-  console.log("L> " + amountPS + " " + item[5].name + " " + metal[metalIndex]);
-
-} else if (colValue == 6) {
-
-  console.log(circuit(amountPS));
-  console.log("L> " + amountPS + " " + item[6].name);
-
-} else if (colValue == 7) {
-
-  console.log(serverRack(amountPS));
-  console.log("L> " + amountPS + " " + item[7].name);
-
-} else if (colValue == 8) {
-
-  console.log(battery(amountPS));
-  console.log("L> " + amountPS + " " + item[8].name);
-
-} else if (colValue == 9) {
-
-  console.log(engine(amountPS));
-  console.log("L> " + amountPS + " " + item[9].name);
-
-} else if (colValue == 10) {
-
-  console.log(solarCell(amountPS));
-  console.log("L> " + amountPS + " " + item[10].name);
-
-} else if (colValue == 11) {
-
-  console.log(electricBoard(amountPS));
-  console.log("L> " + amountPS + " " + item[11].name);
-
-} else if (colValue == 12) {
-
-  console.log(heaterPlate(amountPS));
-  console.log("L> " + amountPS + " " + item[12].name);
-
-} else if (colValue == 13) {
-
-  console.log(advancedEngine(amountPS));
-  console.log("L> " + amountPS + " " + item[13].name);
-
-} else if (colValue == 14) {
-
-  console.log(lazer(amountPS));
-  console.log("L> " + amountPS + " " + item[14].name);
-
-} else if (colValue == 15) {
-
-  console.log(solarPanel(amountPS));
-  console.log("L> " + amountPS + " " + item[15].name);
-
-} else if (colValue == 16) {
-
-  console.log(powerSupply(amountPS));
-  console.log("L> " + amountPS + " " + item[16].name);
-
-} else if (colValue == 17) {
-
-  console.log(fan(amountPS));
-  console.log("L> " + amountPS + " " + item[17].name);
-
-} else if (colValue == 18) {
-
-  console.log(processor(amountPS));
-  console.log("L> " + amountPS + " " + item[18].name);
-
-} else if (colValue == 19) {
-
-  console.log(computer(amountPS));
-  console.log("L> " + amountPS + " " + item[19].name);
-
-} else if (colValue == 20) {
-
-  console.log(superComputer(amountPS));
-  console.log("L> " + amountPS + " " + item[20].name);
-
-} else if (colValue == 21) {
-
-  console.log(aiProcessor(amountPS));
-  console.log("L> " + amountPS + " " + item[21].name);
-
-} else if (colValue == 22) {
-
-  console.log(aiRobotHead(amountPS));
-  console.log("L> " + amountPS + " " + item[22].name);
-
-} else if (colValue == 23) {
-
-  console.log(electricEngine(amountPS));
-  console.log("L> " + amountPS + " " + item[23].name);
-
-} else if (colValue == 24) {
-
-  console.log(aiRobotArm(amountPS));
-  console.log("L> " + amountPS + " " + item[24].name);
-
-} else if (colValue == 25) {
-
-  console.log(aiRobotBody(amountPS));
-  console.log("L> " + amountPS + " " + item[25].name);
-
-} else if (colValue == 26) {
-
-  console.log(aiRobot(amountPS));
-  console.log("L> " + amountPS + " " + item[26].name);
-
-}
-
-// totalStarter.amount += " Starters";
-// totalCrafterMK1 += " CraftersMK1";
-// totalCrafterMK2 +=" CrafterMK2";
-// totalCrafterMK3 += " CraftersMK3";
-// totalWireMaker += " Wire Makers";
-// totalCutter += " Cutters";
-// totalFurnace += " Furnaces";
-// totalCableMaker += " Cable Makers";
-// totalHydraulicPress += " Hyrdaulic Presses";
-
-// console.log("\n" + totalStarter.amount);
-// if(totalStarter.copper !== 0) {
-//   console.log(totalStarter.copper + " Copper Starters")
-// }
-// if(totalStarter.iron !== 0) {
-//   console.log(totalStarter.iron + " Iron Starters")
-// }
-// if(totalStarter.gold !== 0) {
-//   console.log(totalStarter.gold + " Gold Starters")
-// }
-// if(totalStarter.aluminium !== 0) {
-//   console.log(totalStarter.aluminium + " Aluminium Starters")
-// }
-// if(totalStarter.diamond !== 0) {
-//   console.log(totalStarter.diamond + " Diamond Starters")
-// }
-// console.log(totalCrafterMK1);
-// console.log(totalCrafterMK2);
-// console.log(totalCrafterMK3);
-// console.log(totalWireMaker);
-// console.log(totalCutter);
-// console.log(totalFurnace);
-// console.log(totalCableMaker);
-// console.log(totalHydraulicPress);
