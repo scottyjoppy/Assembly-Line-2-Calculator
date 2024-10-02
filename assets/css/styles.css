@@ -69,10 +69,12 @@ h1 {
 
 p {
     color: rgb(206, 158, 87);
+    text-shadow: black 2px 2px;
 }
 
 div {
     color: rgb(255, 203, 126);
+    text-shadow: black 2px 2px;
 }
 
 .box3 .title {
