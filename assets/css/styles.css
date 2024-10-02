@@ -1,15 +1,123 @@
 body {
-    background-color: rgb(188, 188, 188);
+    background-image: url("Tiles.png");
+    background-size: 25em;
+    background-repeat: repeat;
+    background-color: rgb(29, 29, 29);
+    background-blend-mode: screen
 }
+
 h1 {
-    color: black;
+    color: rgb(206, 158, 87);
     text-decoration: underline;
     padding: auto;
     text-align: center;
+    text-shadow: black 1px 0 10px;
 }
+
 #materialDropdown {
     visibility: hidden;
 }
+
 .placeholder {
     color: grey;
+}
+
+.box {
+    background-color: rgba(43, 43, 43, 0.5);
+    border: 1px solid rgb(206, 158, 87);
+    border-style: dashed;
+    width: 300px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.box2 {
+    background-color: rgba(43, 43, 43, 0.5);
+    border: 1px solid rgb(206, 158, 87);
+    border-style: dashed;
+    width: 600px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.box3 {
+    background-color: rgba(43, 43, 43, 0.5);
+    border: 1px solid rgb(206, 158, 87);
+    border-style: dashed;
+    width: 600px;
+    height: 500px;
+    align-items: left;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 50px;
+}
+
+.description {
+    text-align: center;
+    color: rgb(206, 158, 87);
+    opacity: 100%;
+}
+
+p {
+    color: rgb(206, 158, 87);
+}
+
+div {
+    color: rgb(255, 203, 126);
+}
+
+.box3 .title {
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: black 1px 0 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+input,
+select,
+button {
+    background-color: rgba(108, 108, 108, 0.5);
+    color: rgb(216, 216, 216);
+}
+
+select option {
+    background-color: rgb(96, 96, 96);
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+}
+
+.box3 p {
+    text-shadow: black 1px 2px;
+}
+
+.speedPS {
+    color: rgb(202, 125, 10);
+}
+
+.box4 {
+    background-color: rgba(43, 43, 43, 0.5);
+    border: 2px solid rgb(0, 0, 0);
+    border-style: solid;
+    width: 600px;
+    height: 150%;
+    padding: 50px;
+    box-sizing: border-box;
+    justify-content: left;
+    align-items: left;
+    margin: auto;
+}
+.line {
+    color: rgb(0, 0, 0);
+    border-bottom: 2px dashed rgb(0, 0, 0);
+    padding-top: 10px;
 }
