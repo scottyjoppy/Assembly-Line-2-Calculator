@@ -14,11 +14,10 @@
     <p class="description">A basic calculator to plan you factories</p>
   </div>
   <div class="box2">
-    <div>Amount/ps</div>
+    <div><u>Amount/ps</u></div>
     <input type="number" min="0" placeholder="eg. 1" id="amountPerSecond" required />
 
-    <div>Item</div>
-    <div></div>
+    <div><u>Item</u></div>
     <select id="item">
       <option class="placeholder">Item</option>
       <option value="metal">Metal</option>
@@ -60,8 +59,10 @@
   </div>
   <div class="box3">
     <p class="title">Machine Levels</p>
-    <p>Starter
-      <select id="starterLvl">
+    <div class="machines">
+    <p>
+      <span class="machineName">Starter</span>
+      <select id="starterLvl" class="machineSelect">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -73,8 +74,9 @@
       </select>
       <span id="starterSpeed" class="speedPS">0.2 Items/ps</span>
     </p>
-    <p>Wire Maker
-      <select id="wireMakerLvl">
+    <p>
+      <span class="machineName">Wire Maker</span>
+      <select id="wireMakerLvl" class="machineSelect">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -83,8 +85,9 @@
       </select>
       <span id="wireMakerSpeed" class="speedPS">0.2 Items/ps</span>
     </p>
-    <p>Cutter
-      <select id="cutterLvl">
+    <p>
+      <span class="machineName">Cutter</span>
+      <select id="cutterLvl" class="machineSelect">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -93,18 +96,20 @@
       </select>
       <span id="cutterSpeed" class="speedPS">0.2 Items/ps</span>
     </p>
-    <p>Furnace
-      <select id="furnaceLvl">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <span id="furnaceSpeed" class="speedPS">0.2 Items/ps</span>
+    <p>
+      <span class="machineName">Furnace</>
+        <select id="furnaceLvl" class="machineSelect">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <span id="furnaceSpeed" class="speedPS">0.2 Items/ps</span>
     </p>
-    <p>Cable Maker
-      <select id="cableMakerLvl">
+    <p>
+      <span class="machineName">Cable Maker</span>
+      <select id="cableMakerLvl" class="machineSelect">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -113,8 +118,9 @@
       </select>
       <span id="cableMakerSpeed" class="speedPS">0.2 Items/ps</span>
     </p>
-    <p>Hydraulic Press
-      <select id="hyrdaulicPressLvl">
+    <p>
+      <span class="machineName">Hydraulic Press</span>
+      <select id="hyrdaulicPressLvl" class="machineSelect">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -123,8 +129,9 @@
       </select>
       <span id="hydraulicPressSpeed" class="speedPS">0.2 Items/ps</span>
     </p>
-    <p>Crafter MK1
-      <select id="crafterMK1Lvl">
+    <p>
+      <span class="machineName">Crafter MK1</span>
+      <select id="crafterMK1Lvl" class="machineSelect">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -133,8 +140,9 @@
       </select>
       <span id="crafterMK1Speed" class="speedPS">0.2 Items/ps</span>
     </p>
-    <p>Crafter MK2
-      <select id="crafterMK2Lvl">
+    <p>
+      <span class="machineName">Crafter MK2</span>
+      <select id="crafterMK2Lvl" class="machineSelect">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -143,8 +151,9 @@
       </select>
       <span id="crafterMK2Speed" class="speedPS">0.2 Items/ps</span>
     </p>
-    <p>Crafter MK3
-      <select id="crafterMK3Lvl">
+    <p>
+      <span class="machineName">Crafter MK3</span>
+      <select id="crafterMK3Lvl" class="machineSelect">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -153,8 +162,9 @@
       </select>
       <span id="crafterMK3Speed" class="speedPS">0.2 Items/ps</span>
     </p>
-    <label>
-      <input id="maxAll" type="checkbox">Max All</input>
+  </div>
+  <label><!--this label is to make maxall clickable-->
+    <input id="maxAll" type="checkbox">Max All</input>
     </label>
     <p id="isMaxed"></p>
     <button type="submit" id="calculateButton">Calculate</button>
